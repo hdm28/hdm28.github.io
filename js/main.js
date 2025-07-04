@@ -41,3 +41,19 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
 });
+
+// Hero banner scroll effect for project pages
+document.addEventListener('DOMContentLoaded', function() {
+    const heroOverlay = document.querySelector('.hero-overlay');
+    
+    if (heroOverlay) {
+        window.addEventListener('scroll', function() {
+            const scrollY = window.scrollY;
+            const windowHeight = window.innerHeight;
+            const scrollProgress = Math.min(scrollY / windowHeight, 1);
+            const opacity = scrollProgress * 0.75;
+            
+            heroOverlay.style.background = `rgba(0, 0, 0, ${opacity})`;
+        });
+    }
+});
