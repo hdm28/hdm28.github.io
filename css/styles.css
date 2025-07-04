@@ -121,8 +121,9 @@ h1 {
     text-align: right;
     line-height: 1.3;
     max-width: 80%;
-    word-wrap: break-word;
-    hyphens: auto;
+    word-wrap: normal;
+    hyphens: none;
+    overflow-wrap: break-word;
 }
 
 .overlay-title {
@@ -131,8 +132,9 @@ h1 {
     margin-bottom: 8px;
     display: block;
     line-height: 1.1;
-    word-wrap: break-word;
+    word-wrap: normal;
     overflow-wrap: break-word;
+    hyphens: none;
 }
 
 .overlay-subtitle {
@@ -141,8 +143,9 @@ h1 {
     opacity: 0.9;
     display: block;
     line-height: 1.3;
-    word-wrap: break-word;
+    word-wrap: normal;
     overflow-wrap: break-word;
+    hyphens: none;
 }
 
 /* Grid item size variations */
