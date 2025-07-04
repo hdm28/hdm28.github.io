@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rolling Robot - Harry Mills</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .project-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .project-hero {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .project-content {
+            display: grid;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .project-details {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .project-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .project-gallery img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+                <li><a href="../cv.html">CV</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <a href="../index.html" class="back-link">← Back to Portfolio</a>
+        
+        <div class="project-header">
+            <h1>Rolling Robot</h1>
+            <img src="../gallerypics/mech2.jpg" alt="Rolling Robot Mechatronics Project" class="project-hero">
+        </div>
+        
+        <div class="project-content">
+            <div class="project-details">
+                <h2>Project Overview</h2>
+                <p>Design and construction of a hamster ball mechatronics project featuring autonomous navigation and control systems. This project demonstrates advanced robotics programming and mechanical engineering integration.</p>
+                
+                <h3>Project Details</h3>
+                <ul>
+                    <li><strong>Type:</strong> University Mechatronics Project</li>
+                    <li><strong>Duration:</strong> 8 weeks</li>
+                    <li><strong>Role:</strong> Lead Engineer & Programmer</li>
+                    <li><strong>Tools:</strong> Arduino, C++, CAD Software, 3D Printing</li>
+                </ul>
+                
+                <h3>Key Features</h3>
+                <ul>
+                    <li>Autonomous navigation within spherical constraint</li>
+                    <li>Sensor integration for obstacle detection</li>
+                    <li>Custom mechanical drive system</li>
+                    <li>Real-time control algorithms</li>
+                    <li>Wireless communication capabilities</li>
+                </ul>
+                
+                <h3>Technical Challenges</h3>
+                <p>The main challenge was developing a control system that could maintain stability and directional control within the spherical hamster ball. This required sophisticated balance algorithms and precise motor control to achieve smooth movement.</p>
+                
+                <h3>Engineering Solutions</h3>
+                <p>Implemented a gyroscopic stabilization system combined with accelerometer feedback to maintain orientation. The drive mechanism uses differential wheel speeds to control direction while maintaining the robot's position within the ball.</p>
+                
+                <h3>Results</h3>
+                <p>Successfully demonstrated autonomous navigation through obstacle courses with 90% accuracy. The project received top marks for innovation and technical execution, showcasing the integration of mechanical design with advanced control systems.</p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
