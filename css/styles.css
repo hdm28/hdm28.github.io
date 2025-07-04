@@ -378,22 +378,63 @@ h1 {
     display: flex;
 }
 
+.lightbox-main {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    width: 100%;
+}
+
 .lightbox-image {
     width: 50%;
     max-height: 60vh;
     object-fit: contain;
     border-radius: 8px;
-    margin-bottom: 2rem;
+}
+
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 1rem;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+    z-index: 1002;
+}
+
+.lightbox-nav:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.lightbox-prev {
+    left: 2rem;
+}
+
+.lightbox-next {
+    right: 2rem;
 }
 
 .lightbox-thumbnails {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     gap: 0.5rem;
     justify-content: center;
     flex-wrap: wrap;
     max-width: 80%;
     overflow-x: auto;
-    padding: 0 1rem;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
 }
 
 .lightbox-thumbnail {
@@ -441,6 +482,25 @@ h1 {
     .lightbox-image {
         width: 90%;
         max-height: 50vh;
+    }
+    
+    .lightbox-nav {
+        font-size: 1.5rem;
+        padding: 0.75rem;
+    }
+    
+    .lightbox-prev {
+        left: 1rem;
+    }
+    
+    .lightbox-next {
+        right: 1rem;
+    }
+    
+    .lightbox-thumbnails {
+        bottom: 1rem;
+        max-width: 95%;
+        padding: 0.5rem;
     }
     
     .lightbox-thumbnail {

@@ -64,7 +64,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const lightboxHTML = `
         <div class="lightbox" id="lightbox">
             <button class="lightbox-close" id="lightbox-close">&times;</button>
-            <img class="lightbox-image" id="lightbox-image" src="" alt="">
+            <div class="lightbox-main">
+                <button class="lightbox-nav lightbox-prev" id="lightbox-prev">‹</button>
+                <img class="lightbox-image" id="lightbox-image" src="" alt="">
+                <button class="lightbox-nav lightbox-next" id="lightbox-next">›</button>
+            </div>
             <div class="lightbox-thumbnails" id="lightbox-thumbnails"></div>
         </div>
     `;
@@ -76,9 +80,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const lightboxImage = document.getElementById('lightbox-image');
     const lightboxThumbnails = document.getElementById('lightbox-thumbnails');
     const lightboxClose = document.getElementById('lightbox-close');
+    const lightboxPrev = document.getElementById('lightbox-prev');
+    const lightboxNext = document.getElementById('lightbox-next');
     
     // Get all gallery images
     const galleryImages = document.querySelectorAll('.project-gallery img');
+    let currentIndex = 0;
     
     if (galleryImages.length > 0) {
         // Add click listeners to gallery images
@@ -103,13 +110,16 @@ document.addEventListener('DOMContentLoaded', function() {
         // Open lightbox
         function openLightbox(index) {
             createThumbnails();
-            showImage(index);
+            currentIndex = index;
+            showImage(currentIndex);
             lightbox.classList.add('active');
             document.body.style.overflow = 'hidden';
+            updateNavButtons();
         }
         
         // Show specific image
         function showImage(index) {
+            currentIndex = index;
             const img = galleryImages[index];
             lightboxImage.src = img.src;
             lightboxImage.alt = img.alt;
@@ -119,6 +129,28 @@ document.addEventListener('DOMContentLoaded', function() {
             thumbnails.forEach((thumb, i) => {
                 thumb.classList.toggle('active', i === index);
             });
+            
+            updateNavButtons();
+        }
+        
+        // Update navigation button visibility
+        function updateNavButtons() {
+            lightboxPrev.style.display = currentIndex === 0 ? 'none' : 'block';
+            lightboxNext.style.display = currentIndex === galleryImages.length - 1 ? 'none' : 'block';
+        }
+        
+        // Navigate to previous image
+        function prevImage() {
+            if (currentIndex > 0) {
+                showImage(currentIndex - 1);
+            }
+        }
+        
+        // Navigate to next image
+        function nextImage() {
+            if (currentIndex < galleryImages.length - 1) {
+                showImage(currentIndex + 1);
+            }
         }
         
         // Close lightbox
@@ -129,6 +161,9 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Event listeners
         lightboxClose.addEventListener('click', closeLightbox);
+        lightboxPrev.addEventListener('click', prevImage);
+        lightboxNext.addEventListener('click', nextImage);
+        
         lightbox.addEventListener('click', (e) => {
             if (e.target === lightbox) {
                 closeLightbox();
@@ -141,6 +176,10 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (e.key === 'Escape') {
                 closeLightbox();
+            } else if (e.key === 'ArrowLeft') {
+                prevImage();
+            } else if (e.key === 'ArrowRight') {
+                nextImage();
             }
         });
     }
