@@ -219,8 +219,8 @@ h1 {
 /* Project Page Styles */
 .hero-banner {
     position: relative;
-    height: 40vh; /* Changed to create 2.5:1 aspect ratio */
-    min-height: 350px; /* Ensure minimum height for readability */
+    height: 50vh; /* Increased from 40vh to create a taller 2.5:1 aspect ratio */
+    min-height: 400px; /* Increased minimum height for better proportions */
     overflow: hidden;
     display: flex;
     align-items: flex-end;
@@ -267,6 +267,7 @@ h1 {
     margin: 0;
     color: white; /* Explicitly set white color */
     text-shadow: none; /* Remove shadow */
+    text-align: left; /* Explicitly left-align the title */
 }
 
 .project-content {
