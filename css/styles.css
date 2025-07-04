@@ -398,19 +398,18 @@ h1 {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.2);
+    background: none;
     border: none;
-    color: white;
+    color: #ccc;
     font-size: 2rem;
     cursor: pointer;
     padding: 1rem;
-    border-radius: 50%;
-    transition: background 0.3s ease;
+    transition: color 0.3s ease;
     z-index: 1002;
 }
 
 .lightbox-nav:hover {
-    background: rgba(255, 255, 255, 0.3);
+    color: white;
 }
 
 .lightbox-prev {
