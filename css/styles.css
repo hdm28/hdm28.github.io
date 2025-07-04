@@ -130,21 +130,21 @@ h1 {
     padding: 0;
     word-wrap: normal;
     hyphens: none;
-    overflow-wrap: normal;
-    white-space: nowrap;
+    overflow-wrap: break-word;
+    word-break: normal;
 }
 
 .overlay-title {
     font-size: clamp(1.4em, 3vw, 2.2em);
     font-weight: 700;
-    margin: 0;
+    margin: 0 0 8px 0;
     padding: 0;
     display: block;
     line-height: 1.1;
     word-wrap: normal;
-    overflow-wrap: normal;
+    overflow-wrap: break-word;
     hyphens: none;
-    white-space: nowrap;
+    word-break: normal;
 }
 
 .overlay-subtitle {
@@ -156,8 +156,9 @@ h1 {
     margin: 0;
     padding: 0;
     word-wrap: normal;
-    overflow-wrap: normal;
+    overflow-wrap: break-word;
     hyphens: none;
+    word-break: normal;
 }
 
 /* Grid item size variations */
