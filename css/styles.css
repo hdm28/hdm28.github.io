@@ -219,7 +219,8 @@ h1 {
 /* Project Page Styles */
 .hero-banner {
     position: relative;
-    height: 100vh;
+    height: 33.33vh; /* Changed from 100vh to create 3:1 aspect ratio */
+    min-height: 300px; /* Ensure minimum height for readability */
     overflow: hidden;
     display: flex;
     align-items: flex-end;
@@ -255,10 +256,12 @@ h1 {
 }
 
 .hero-title {
+    font-family: 'Inter', sans-serif; /* Explicitly set Inter font */
     font-size: 4rem;
     font-weight: bold;
     margin: 0;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    color: white; /* Explicitly set white color */
+    text-shadow: none; /* Remove shadow */
 }
 
 .project-content {
@@ -311,14 +314,14 @@ h1 {
 .project-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1rem;
+    gap: 0.5rem; /* Reduced from 1rem */
 }
 
 .project-gallery img {
     width: 100%;
     height: 250px;
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: 0; /* Changed from 8px to 0 for square corners */
     transition: transform 0.3s ease;
 }
 
@@ -328,6 +331,11 @@ h1 {
 
 /* Responsive design for project pages */
 @media (max-width: 768px) {
+    .hero-banner {
+        height: 25vh; /* Smaller height on mobile but maintain proportions */
+        min-height: 200px;
+    }
+    
     .hero-title {
         font-size: 2.5rem;
     }
@@ -342,5 +350,6 @@ h1 {
     
     .project-gallery {
         grid-template-columns: 1fr;
+        gap: 0.3rem; /* Even smaller gap on mobile */
     }
 }
