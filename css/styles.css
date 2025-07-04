@@ -219,8 +219,8 @@ h1 {
 /* Project Page Styles */
 .hero-banner {
     position: relative;
-    height: 33.33vh; /* Changed from 100vh to create 3:1 aspect ratio */
-    min-height: 300px; /* Ensure minimum height for readability */
+    height: 40vh; /* Changed to create 2.5:1 aspect ratio */
+    min-height: 350px; /* Ensure minimum height for readability */
     overflow: hidden;
     display: flex;
     align-items: flex-end;
@@ -251,8 +251,13 @@ h1 {
 .hero-content {
     position: relative;
     z-index: 3;
-    padding: 0 5% 10% 5%;
+    padding: 0 0 10% 0;
     color: white;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 10%;
 }
 
 .hero-title {
@@ -351,5 +356,103 @@ h1 {
     .project-gallery {
         grid-template-columns: 1fr;
         gap: 0.3rem; /* Even smaller gap on mobile */
+    }
+}
+
+/* Gallery Lightbox Styles */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox-image {
+    width: 50%;
+    max-height: 60vh;
+    object-fit: contain;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.lightbox-thumbnails {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 80%;
+    overflow-x: auto;
+    padding: 0 1rem;
+}
+
+.lightbox-thumbnail {
+    width: 10vw;
+    min-width: 60px;
+    max-width: 100px;
+    height: 60px;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 4px;
+    opacity: 0.6;
+    transition: opacity 0.3s ease, transform 0.2s ease;
+    border: 2px solid transparent;
+}
+
+.lightbox-thumbnail:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.lightbox-thumbnail.active {
+    opacity: 1;
+    border-color: white;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 3rem;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 1001;
+}
+
+.lightbox-close:hover {
+    opacity: 0.7;
+}
+
+/* Mobile responsiveness for lightbox */
+@media (max-width: 768px) {
+    .lightbox-image {
+        width: 90%;
+        max-height: 50vh;
+    }
+    
+    .lightbox-thumbnail {
+        width: 15vw;
+        min-width: 50px;
+        max-width: 80px;
+        height: 50px;
+    }
+    
+    .lightbox-close {
+        top: 1rem;
+        right: 1rem;
+        font-size: 2rem;
     }
 }
