@@ -123,17 +123,19 @@ h1 {
 }
 
 .overlay-title {
-    font-size: 1.1em;
-    font-weight: 600;
-    margin-bottom: 4px;
+    font-size: 1.8em;
+    font-weight: 700;
+    margin-bottom: 6px;
     display: block;
+    line-height: 1.1;
 }
 
 .overlay-subtitle {
-    font-size: 0.55em;
+    font-size: 0.75em;
     font-weight: 400;
     opacity: 0.9;
     display: block;
+    line-height: 1.3;
 }
 
 /* Grid item size variations */

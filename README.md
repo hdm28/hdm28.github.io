@@ -1,43 +1,67 @@
-# Design Portfolio
+# Harry Mills - Design Engineering Portfolio
 
-https://hdm28.github.io/
-This project is a simple static design portfolio showcasing various design projects in a gallery-style layout. Below are the details of the project structure and its contents.
+A showcase of engineering projects spanning mechanical design, 3D printing, robotics, and automotive restoration.
 
-## Project Structure
+## Featured Projects
 
-```
-design-portfolio
-├── index.html        # Main homepage of the design portfolio
-├── contact.html      # Contact information for the portfolio owner
-├── cv.html           # Curriculum vitae of the portfolio owner
-├── projects          # Directory containing individual project pages
-│   ├── project1.html # Detailed information about project 1
-│   ├── project2.html # Detailed information about project 2
-│   └── project3.html # Detailed information about project 3
-├── css               # Directory for stylesheets
-│   └── styles.css    # Styles for the entire portfolio site
-├── js                # Directory for JavaScript files
-│   └── main.js       # JavaScript functionality for the portfolio
-└── README.md         # Documentation for the project
-```
+### 3D Printing & Rapid Prototyping
+Custom 3D printer build and various prototyping projects demonstrating additive manufacturing capabilities and precision engineering.
 
-## Features
+### BathMat - Medical Device Design
+Inflatable repositioning aid designed for prone ICU patients, addressing critical healthcare needs through innovative engineering solutions and user-centered design.
 
-- **Responsive Design**: The portfolio is designed to be responsive and visually appealing on various devices.
-- **Gallery-Style Grid**: The homepage features a gallery-style grid layout with three columns, allowing for merged cells to accommodate different photo orientations.
-- **Navigation**: Easy navigation through the header with links to the homepage, contact page, CV, and individual project pages.
-- **Project Pages**: Each project has its own dedicated page with detailed information, images, and descriptions.
+### Car Sensor System
+Performance data acquisition and audio system designed for classic car applications, integrating modern electronics with vintage automotive systems for enhanced driving experience.
 
-## Setup Instructions
+### Rolling Robot
+Hamster ball mechatronics project featuring autonomous navigation and control systems, demonstrating advanced robotics and programming skills.
 
-1. Clone the repository or download the project files.
-2. Open `index.html` in a web browser to view the homepage.
-3. Navigate through the site using the header links to explore the contact information, CV, and project details.
+### MG Midget Restoration
+Complete classic car restoration project including engine rebuild, electrical systems, and bodywork restoration, showcasing traditional automotive engineering skills.
 
-## Future Enhancements
+### Pick-and-Place Balloon System
+CNC soft robotic gripper system designed for delicate object manipulation with computer-controlled precision, highlighting automation and control engineering.
 
-- Add more project pages as needed.
-- Implement a contact form in `contact.html`.
-- Enhance the JavaScript functionality in `main.js` for interactive elements.
+### Wind Turbine Optimization
+Aerodynamic design optimization study using computational fluid dynamics to improve turbine blade performance and energy generation efficiency.
 
-Feel free to customize the styles in `css/styles.css` and the JavaScript in `js/main.js` to suit your design preferences.
+### Shaft Assembly & Mechanical Design
+Precision mechanical engineering projects including shaft design for various applications, demonstrating CAD modeling and stress analysis capabilities.
+
+### Reverse Engineering
+Interactive Dance Mat disassembly and analysis project, showcasing systematic approach to understanding existing products and their mechanisms.
+
+### Maze Solving Robot
+Lego Mindstorms robot programmed with autonomous navigation algorithms to solve complex maze challenges, demonstrating programming and sensor integration skills.
+
+### Pizza Oven Construction
+Wood-fired earth oven construction project capable of reaching 400°C, combining thermal engineering principles with hands-on building and construction skills.
+
+## Technologies & Skills
+
+- **CAD Design & 3D Modeling** - SolidWorks, Fusion 360
+- **3D Printing & Additive Manufacturing** - FDM, SLA printing technologies
+- **Mechanical Engineering Design** - Stress analysis, material selection
+- **Robotics & Automation** - Sensor integration, control systems
+- **Classic Car Restoration** - Engine rebuilding, electrical systems
+- **Thermal Engineering** - Heat transfer analysis, high-temperature systems
+- **Electronics Integration** - Circuit design, embedded systems
+- **Programming & Control Systems** - Arduino, automation programming
+
+## Portfolio Structure
+
+This portfolio website features:
+- Responsive grid layout showcasing project thumbnails
+- Interactive hover effects revealing project details
+- Individual project pages with detailed descriptions
+- Clean, professional design optimized for all devices
+
+## Contact & Links
+
+- **Portfolio Website**: [hdm28.github.io](https://hdm28.github.io)
+- **Email**: Available via contact page
+- **CV**: Full curriculum vitae available on site
+
+## About This Site
+
+Built with HTML5, CSS3, and JavaScript. Features a custom CSS grid layout with responsive design and smooth hover animations. Optimized for performance and accessibility across all modern browsers.
