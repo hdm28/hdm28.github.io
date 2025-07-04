@@ -251,13 +251,13 @@ h1 {
 .hero-content {
     position: relative;
     z-index: 3;
-    padding: 0 0 10% 0;
+    padding: 0 0 2rem 0;
     color: white;
     max-width: 1200px;
     margin: 0 auto;
     padding-left: 5%;
     padding-right: 5%;
-    padding-bottom: 10%;
+    width: 100%;
 }
 
 .hero-title {
@@ -398,14 +398,19 @@ h1 {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: none;
-    border: none;
+    background: none !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
     color: #ccc;
     font-size: 2rem;
     cursor: pointer;
     padding: 1rem;
     transition: color 0.3s ease;
     z-index: 1002;
+    font-family: inherit;
+    line-height: 1;
 }
 
 .lightbox-nav:hover {

@@ -164,10 +164,20 @@ document.addEventListener('DOMContentLoaded', function() {
         lightboxPrev.addEventListener('click', prevImage);
         lightboxNext.addEventListener('click', nextImage);
         
+        // Close lightbox when clicking on background (overlay)
         lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) {
+            if (e.target === lightbox || e.target.classList.contains('lightbox-main')) {
                 closeLightbox();
             }
+        });
+        
+        // Prevent lightbox from closing when clicking on the image or thumbnails
+        lightboxImage.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+        
+        lightboxThumbnails.addEventListener('click', (e) => {
+            e.stopPropagation();
         });
         
         // Keyboard navigation
