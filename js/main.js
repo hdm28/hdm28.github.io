@@ -47,14 +47,21 @@ document.addEventListener('DOMContentLoaded', function() {
     const heroOverlay = document.querySelector('.hero-overlay');
     
     if (heroOverlay) {
-        window.addEventListener('scroll', function() {
+        // Set initial overlay opacity on page load
+        function updateOverlay() {
             const scrollY = window.scrollY;
             const windowHeight = window.innerHeight;
             const scrollProgress = Math.min(scrollY / windowHeight, 1);
-            const opacity = scrollProgress * 0.75;
+            const opacity = 0.6 + (scrollProgress *0.7); // 25% base + up to 50% more = 25% to 75% range
             
             heroOverlay.style.background = `rgba(0, 0, 0, ${opacity})`;
-        });
+        }
+        
+        // Set initial state
+        updateOverlay();
+        
+        // Update on scroll
+        window.addEventListener('scroll', updateOverlay);
     }
 });
 
@@ -66,7 +73,11 @@ document.addEventListener('DOMContentLoaded', function() {
             <button class="lightbox-close" id="lightbox-close">&times;</button>
             <div class="lightbox-main">
                 <button class="lightbox-nav lightbox-prev" id="lightbox-prev">‹</button>
-                <img class="lightbox-image" id="lightbox-image" src="" alt="">
+                <img class="lightbox-image" id="lightbox-image" src="" alt="" style="display: none;">
+                <video class="lightbox-video" id="lightbox-video" controls style="display: none;">
+                    <source src="" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
                 <button class="lightbox-nav lightbox-next" id="lightbox-next">›</button>
             </div>
             <div class="lightbox-thumbnails" id="lightbox-thumbnails"></div>
@@ -78,31 +89,51 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const lightbox = document.getElementById('lightbox');
     const lightboxImage = document.getElementById('lightbox-image');
+    const lightboxVideo = document.getElementById('lightbox-video');
     const lightboxThumbnails = document.getElementById('lightbox-thumbnails');
     const lightboxClose = document.getElementById('lightbox-close');
     const lightboxPrev = document.getElementById('lightbox-prev');
     const lightboxNext = document.getElementById('lightbox-next');
     
-    // Get all gallery images
-    const galleryImages = document.querySelectorAll('.project-gallery img');
+    // Get all gallery images and videos from both project-gallery and content-gallery
+    const galleryItems = document.querySelectorAll('.project-gallery img, .project-gallery video, .content-gallery img, .content-gallery video');
     let currentIndex = 0;
     
-    if (galleryImages.length > 0) {
-        // Add click listeners to gallery images
-        galleryImages.forEach((img, index) => {
-            img.style.cursor = 'pointer';
-            img.addEventListener('click', () => openLightbox(index));
+    if (galleryItems.length > 0) {
+        // Add click listeners to gallery items
+        galleryItems.forEach((item, index) => {
+            item.style.cursor = 'pointer';
+            item.addEventListener('click', () => openLightbox(index));
         });
         
         // Create thumbnails
         function createThumbnails() {
             lightboxThumbnails.innerHTML = '';
-            galleryImages.forEach((img, index) => {
+            galleryItems.forEach((item, index) => {
                 const thumbnail = document.createElement('img');
-                thumbnail.src = img.src;
-                thumbnail.alt = img.alt;
+                if (item.tagName === 'VIDEO') {
+                    // For videos, create a canvas thumbnail from the first frame
+                    const canvas = document.createElement('canvas');
+                    const ctx = canvas.getContext('2d');
+                    canvas.width = 100;
+                    canvas.height = 60;
+                    
+                    // Draw a video icon as placeholder
+                    ctx.fillStyle = '#333';
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+                    ctx.fillStyle = 'white';
+                    ctx.font = '20px Arial';
+                    ctx.textAlign = 'center';
+                    ctx.fillText('▶', canvas.width/2, canvas.height/2 + 7);
+                    
+                    thumbnail.src = canvas.toDataURL();
+                    thumbnail.alt = 'Video thumbnail';
+                } else {
+                    thumbnail.src = item.src;
+                    thumbnail.alt = item.alt;
+                }
                 thumbnail.className = 'lightbox-thumbnail';
-                thumbnail.addEventListener('click', () => showImage(index));
+                thumbnail.addEventListener('click', () => showItem(index));
                 lightboxThumbnails.appendChild(thumbnail);
             });
         }
@@ -111,18 +142,31 @@ document.addEventListener('DOMContentLoaded', function() {
         function openLightbox(index) {
             createThumbnails();
             currentIndex = index;
-            showImage(currentIndex);
+            showItem(currentIndex);
             lightbox.classList.add('active');
             document.body.style.overflow = 'hidden';
             updateNavButtons();
         }
         
-        // Show specific image
-        function showImage(index) {
+        // Show specific item (image or video)
+        function showItem(index) {
             currentIndex = index;
-            const img = galleryImages[index];
-            lightboxImage.src = img.src;
-            lightboxImage.alt = img.alt;
+            const item = galleryItems[index];
+            
+            if (item.tagName === 'VIDEO') {
+                // Show video
+                lightboxImage.style.display = 'none';
+                lightboxVideo.style.display = 'block';
+                const source = lightboxVideo.querySelector('source');
+                source.src = item.querySelector('source').src;
+                lightboxVideo.load();
+            } else {
+                // Show image
+                lightboxVideo.style.display = 'none';
+                lightboxImage.style.display = 'block';
+                lightboxImage.src = item.src;
+                lightboxImage.alt = item.alt;
+            }
             
             // Update thumbnail active state
             const thumbnails = lightboxThumbnails.querySelectorAll('.lightbox-thumbnail');
@@ -136,33 +180,38 @@ document.addEventListener('DOMContentLoaded', function() {
         // Update navigation button visibility
         function updateNavButtons() {
             lightboxPrev.style.display = currentIndex === 0 ? 'none' : 'block';
-            lightboxNext.style.display = currentIndex === galleryImages.length - 1 ? 'none' : 'block';
+            lightboxNext.style.display = currentIndex === galleryItems.length - 1 ? 'none' : 'block';
         }
         
-        // Navigate to previous image
-        function prevImage() {
+        // Navigate to previous item
+        function prevItem() {
             if (currentIndex > 0) {
-                showImage(currentIndex - 1);
+                showItem(currentIndex - 1);
             }
         }
         
-        // Navigate to next image
-        function nextImage() {
-            if (currentIndex < galleryImages.length - 1) {
-                showImage(currentIndex + 1);
+        // Navigate to next item
+        function nextItem() {
+            if (currentIndex < galleryItems.length - 1) {
+                showItem(currentIndex + 1);
             }
         }
         
         // Close lightbox
         function closeLightbox() {
+            // Pause any playing lightbox video
+            if (lightboxVideo.style.display === 'block') {
+                lightboxVideo.pause();
+            }
+            
             lightbox.classList.remove('active');
             document.body.style.overflow = '';
         }
         
         // Event listeners
         lightboxClose.addEventListener('click', closeLightbox);
-        lightboxPrev.addEventListener('click', prevImage);
-        lightboxNext.addEventListener('click', nextImage);
+        lightboxPrev.addEventListener('click', prevItem);
+        lightboxNext.addEventListener('click', nextItem);
         
         // Close lightbox when clicking on background (overlay)
         lightbox.addEventListener('click', (e) => {
@@ -181,8 +230,12 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        // Prevent lightbox from closing when clicking on the image, thumbnails, or nav buttons
+        // Prevent lightbox from closing when clicking on the image/video, thumbnails, or nav buttons
         lightboxImage.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+        
+        lightboxVideo.addEventListener('click', (e) => {
             e.stopPropagation();
         });
         
@@ -206,10 +259,76 @@ document.addEventListener('DOMContentLoaded', function() {
             if (e.key === 'Escape') {
                 closeLightbox();
             } else if (e.key === 'ArrowLeft') {
-                prevImage();
+                prevItem();
             } else if (e.key === 'ArrowRight') {
-                nextImage();
+                nextItem();
             }
         });
     }
+});
+
+// Video Controls functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const videoContainers = document.querySelectorAll('.video-container');
+    
+    videoContainers.forEach(container => {
+        const video = container.querySelector('.gallery-video-with-controls');
+        const volumeSlider = container.querySelector('.volume-slider');
+        const muteButton = container.querySelector('.mute-button');
+        
+        if (!video || !volumeSlider || !muteButton) return;
+        
+        // Initialize volume - start paused
+        video.volume = 0;
+        volumeSlider.value = 0;
+        video.pause(); // Start paused instead of autoplaying
+        
+        // Play on hover, pause when not hovering
+        container.addEventListener('mouseenter', function() {
+            video.play();
+        });
+        
+        container.addEventListener('mouseleave', function() {
+            video.pause();
+        });
+        
+        // Volume slider control
+        volumeSlider.addEventListener('input', function() {
+            video.volume = this.value;
+            video.muted = this.value === '0';
+            updateMuteButton();
+        });
+        
+        // Mute button control
+        muteButton.addEventListener('click', function() {
+            if (video.muted || video.volume === 0) {
+                video.muted = false;
+                video.volume = 0.5;
+                volumeSlider.value = 0.5;
+            } else {
+                video.muted = true;
+                volumeSlider.value = 0;
+            }
+            updateMuteButton();
+        });
+        
+        // Update mute button icon
+        function updateMuteButton() {
+            // Using CSS background images instead of emoji
+            muteButton.className = 'mute-button ' + (video.muted || video.volume === 0 ? 'muted' : 'unmuted');
+        }
+        
+        // Initialize button state
+        updateMuteButton();
+        
+        // Prevent video controls from triggering lightbox
+        container.addEventListener('click', function(e) {
+            if (e.target.closest('.video-controls')) {
+                e.stopPropagation();
+            } else {
+                // Pause video when entering lightbox
+                video.pause();
+            }
+        });
+    });
 });
