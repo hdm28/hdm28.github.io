@@ -159,7 +159,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 lightboxVideo.style.display = 'block';
                 const source = lightboxVideo.querySelector('source');
                 source.src = item.querySelector('source').src;
+                
+                // Preserve playback state from gallery video
+                const wasPlaying = !item.paused;
+                const currentTime = item.currentTime;
+                
                 lightboxVideo.load();
+                lightboxVideo.addEventListener('loadeddata', function onLoaded() {
+                    lightboxVideo.currentTime = currentTime;
+                    if (wasPlaying) {
+                        lightboxVideo.play();
+                    }
+                    lightboxVideo.removeEventListener('loadeddata', onLoaded);
+                }, { once: true });
             } else {
                 // Show image
                 lightboxVideo.style.display = 'none';
@@ -215,41 +227,11 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Close lightbox when clicking on background (overlay)
         lightbox.addEventListener('click', (e) => {
-            // Close if clicking directly on the lightbox container or lightbox-main
-            if (e.target === lightbox || e.target.classList.contains('lightbox-main')) {
+            // Close if clicking anywhere except navigation arrows or thumbnails
+            if (!e.target.closest('.lightbox-nav') && 
+                !e.target.closest('.lightbox-thumbnails')) {
                 closeLightbox();
             }
-        });
-        
-        // Also add click listener to lightbox-main for better background detection
-        const lightboxMain = document.getElementById('lightbox').querySelector('.lightbox-main');
-        lightboxMain.addEventListener('click', (e) => {
-            // Only close if clicking on the lightbox-main itself, not its children
-            if (e.target === lightboxMain) {
-                closeLightbox();
-            }
-        });
-        
-        // Prevent lightbox from closing when clicking on the image/video, thumbnails, or nav buttons
-        lightboxImage.addEventListener('click', (e) => {
-            e.stopPropagation();
-        });
-        
-        lightboxVideo.addEventListener('click', (e) => {
-            e.stopPropagation();
-        });
-        
-        lightboxThumbnails.addEventListener('click', (e) => {
-            e.stopPropagation();
-        });
-        
-        // Prevent nav buttons from closing lightbox
-        lightboxPrev.addEventListener('click', (e) => {
-            e.stopPropagation();
-        });
-        
-        lightboxNext.addEventListener('click', (e) => {
-            e.stopPropagation();
         });
         
         // Keyboard navigation

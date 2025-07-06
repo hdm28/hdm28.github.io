@@ -350,7 +350,7 @@ h1 {
 /* Section divider - thick horizontal line */
 .section-divider {
     border: none;
-    height: 3px;
+    height: 5px;
     background-color: #333;
     margin: 3rem 0;
     width: 100%;
@@ -418,17 +418,18 @@ h1 {
 /* Content gallery - integrated into text flow */
 .content-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(var(--gallery-columns, 12), 1fr);
+    gap: 2px;
     margin: 2rem 0;
 }
 
 .content-gallery img {
     width: 100%;
-    height: 200px;
+    height: var(--gallery-height, 200px);
     object-fit: cover;
     border-radius: 0;
     transition: opacity 0.3s ease;
+    grid-column: span var(--column-span, 4);
 }
 
 .content-gallery img:hover {
@@ -437,9 +438,15 @@ h1 {
 
 .content-gallery video {
     width: 100%;
-    height: 200px;
+    height: var(--gallery-height, 200px);
     object-fit: cover;
     border-radius: 0;
+    grid-column: span var(--column-span, 4);
+}
+
+/* Video container in content gallery */
+.content-gallery .video-container {
+    grid-column: span var(--column-span, 4);
 }
 
 /* Responsive design for project pages */
@@ -546,13 +553,13 @@ h1 {
 .lightbox-thumbnails {
     position: fixed;
     bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 2rem;
+    right: 2rem;
     display: flex;
     gap: 0.5rem;
     justify-content: center;
     flex-wrap: wrap;
-    max-width: 80%;
+    width: calc(100vw - 4rem);
     overflow-x: auto;
     padding: 1rem;
     background: rgba(0, 0, 0, 0.5);
@@ -626,7 +633,9 @@ h1 {
     
     .lightbox-thumbnails {
         bottom: 1rem;
-        max-width: 95%;
+        left: 1rem;
+        right: 1rem;
+        width: calc(100vw - 2rem);
         padding: 0.5rem;
     }
     
@@ -716,8 +725,8 @@ h1 {
     font-size: 16px;
     cursor: pointer;
     padding: 0;
-    width: 24px;
-    height: 24px;
+    width: 32px;
+    height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -736,4 +745,39 @@ h1 {
 
 .mute-button:hover {
     opacity: 0.8;
+}
+
+/* Footer image - full width */
+.footer-image {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.footer-image img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+    margin: 0;
+    border-radius: 0;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+}
+
+.footer-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.15);
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.footer-image:hover::after {
+    opacity: 0;
 }
