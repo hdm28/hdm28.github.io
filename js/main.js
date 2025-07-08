@@ -47,12 +47,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const heroOverlay = document.querySelector('.hero-overlay');
     
     if (heroOverlay) {
+        // Get custom opacity values or use defaults
+        const baseOpacity = parseFloat(getComputedStyle(heroOverlay).getPropertyValue('--base-opacity')) || 0.6;
+        const scrollOpacity = parseFloat(getComputedStyle(heroOverlay).getPropertyValue('--scroll-opacity')) || 1.3;
+        
         // Set initial overlay opacity on page load
         function updateOverlay() {
             const scrollY = window.scrollY;
             const windowHeight = window.innerHeight;
             const scrollProgress = Math.min(scrollY / windowHeight, 1);
-            const opacity = 0.6 + (scrollProgress *0.7); // 25% base + up to 50% more = 25% to 75% range
+            const opacity = baseOpacity + (scrollProgress * (scrollOpacity - baseOpacity));
             
             heroOverlay.style.background = `rgba(0, 0, 0, ${opacity})`;
         }
@@ -166,6 +170,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 lightboxVideo.load();
                 lightboxVideo.addEventListener('loadeddata', function onLoaded() {
+                    // Always open videos muted in lightbox with volume at 0 and force controls update
+                    lightboxVideo.muted = true;
+                    lightboxVideo.volume = 0;
+                    
+                    // Force the browser to update the controls by triggering events
+                    lightboxVideo.dispatchEvent(new Event('volumechange'));
+                    
                     lightboxVideo.currentTime = currentTime;
                     if (wasPlaying) {
                         lightboxVideo.play();
@@ -178,6 +189,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 lightboxImage.style.display = 'block';
                 lightboxImage.src = item.src;
                 lightboxImage.alt = item.alt;
+                
+                // Reset zoom state
+                lightboxImage.classList.remove('zoomed');
+                
+                // Add simple zoom functionality
+                lightboxImage.onclick = function(e) {
+                    e.stopPropagation();
+                    lightboxImage.classList.toggle('zoomed');
+                };
             }
             
             // Update thumbnail active state

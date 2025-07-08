@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wind Turbine Optimization - Harry Mills</title>
+    <title>Wind Turbine Optimisation - Harry Mills</title>
+    <link rel="icon" type="image/x-icon" href="../contentfiles/carfavicon.ico">
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
@@ -11,50 +12,90 @@
         <nav>
             <ul>
                 <li><a href="../index.html">Home</a></li>
-                <li><a href="../contact.html">Contact</a></li>
-                <li><a href="../cv.html">CV</a></li>
             </ul>
         </nav>
     </header>
 
     <div class="hero-banner" id="hero-banner">
-        <img src="../gallerypics/turbine.jpg" alt="Wind Turbine Design" class="hero-image">
+        <img src="../contentfiles/23optim/heroturb.png" alt="Wind Turbine Design" class="hero-image">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1 class="hero-title">Wind Turbine Optimization</h1>
+            <h1 class="hero-title">Wind Turbine Optimisation</h1>
         </div>
     </div>
 
-    <main class="project-content">
-        <div class="project-info">
-            <span class="project-category">AERODYNAMICS OPTIMIZATION | YEAR 4 IDE</span>
-            <span class="project-date">OCTOBER 2023 | 6 WEEKS</span>
-            
-            <div class="project-tags">
-                <span class="tag">CFD Analysis</span>
-                <span class="tag">Optimization</span>
-                <span class="tag">Aerodynamics</span>
-                <span class="tag">MATLAB</span>
+    <main class="project-content" style="padding-bottom: 1rem; padding-top: 1.25rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0;">
+            <div style="color: #999; font-size: 0.9em; text-transform: uppercase; letter-spacing: 1px;">
+                DECEMBER 2023
             </div>
+            <a href="../contentfiles/reportpdfs/Harry Mills Blade Optimisation Report.pdf" target="_blank" style="display: inline-block; padding: 12px 24px; background-color: #3f5fc8; color: white; text-decoration: none; border-radius: 6px; font-weight: 500; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#0056b3'" onmouseout="this.style.backgroundColor='#3f5fc8'">
+                View Full Report (PDF) →
+            </a>
         </div>
-
         <div class="project-description">
-            <p>Computational optimization study of wind turbine blade design using genetic algorithms and computational fluid dynamics. The project focused on maximizing energy extraction efficiency while minimizing material usage and manufacturing complexity.</p>
+            <p>Small wind turbines up to 2m in diameter can be installed on residential property in the UK without planning permission. This study
+                used design optimisation techniques to vary key characteristics of the turbine blade to maximise energy extraction from the wind. </p>
+            </p>
             
-            <p>Using MATLAB optimization toolbox and CFD analysis, multiple blade geometries were evaluated to determine optimal chord length, twist angle, and airfoil selection for various wind conditions and operational requirements.</p>
-        </div>
-
-        <section class="gallery-section">
-            <h2>Gallery</h2>
-            <div class="project-gallery">
-                <img src="../contentfiles/23optim/placeholder1.jpg" alt="Wind turbine design overview">
-                <img src="../contentfiles/23optim/placeholder2.jpg" alt="CFD analysis results">
-                <img src="../contentfiles/23optim/placeholder3.jpg" alt="Blade geometry optimization">
-                <img src="../contentfiles/23optim/placeholder4.jpg" alt="Performance curves">
-                <img src="../contentfiles/23optim/placeholder5.jpg" alt="Design iterations">
-                <img src="../contentfiles/23optim/placeholder6.jpg" alt="Final optimized design">
+            <p>The optimisation process used MATLAB's optimisation toolbox combined with a specialist wind turbine software (Ashes). Ashes evaluated
+            the coefficient of power (C<sub>p</sub>) of the blade across a range of tip-speed ratios (TSR - ratio of wind-speed to blade tip-speed) based on the
+            chord, twist, and aerofoil section of the blade. The maximum C<sub>p</sub> was then passed back to the MATLAB optimisation algorithm, which adjusted
+            the design variables and sent it back to Ashes.</p>
+            
+            <div class="content-gallery" style="--gallery-height: 400px; max-width: 75%; margin: 0 auto;">
+                <img src="../contentfiles/23optim/framework.png" alt="Optimization framework and methodology" style="--column-span: 12;">
             </div>
-        </section>
+
+            
+            <hr class="section-divider">
+            <h3>TWIST AND CHORD OPTIMISATION</h3>
+
+            <p>For a constant chord, constant twist 3-blade turbine the maximum C<sub>p</sub> was 38.3% (40-55% is typical). Stylianidis et al. (2010)
+            suggests that the root of the blade does not contribute significantly to generating aerodynamic forces, but is critical structurally. This study
+            only considered aerodynamics so the root of the blade has a fixed chord.</p>
+            
+            <div class="content-gallery" style="--gallery-height: 260px;">
+                <img src="../contentfiles/23optim/chordOptim.png" alt="Power coefficient vs tip-speed ratio analysis" style="--column-span: 7;">
+                <img src="../contentfiles/23optim/chordtheory2.png" alt="Twist angle optimization results" style="--column-span: 5;">
+
+            </div>
+            <div class="content-gallery" style="--gallery-height: 175px; margin: 0 auto; max-width: 60%;">
+                <img src="../contentfiles/23optim/optimChord.png" alt="Pressure mapping transparency" style="--column-span: 12;">
+            </div>
+
+            <p>Varying blade twist optimises the angle of attack (&alpha;) along the blade. Untwisted root sections have high &alpha; (risk of flow separation)
+                while tips have low &alpha; due to higher linear velocity.</p>
+
+            <p>A genetic algorithm reached C<sub>p</sub>: 44%, then 2D Nelder-Mead optimisation achieved C<sub>p</sub>: <strong>44.6%</strong></p>
+
+            <div class="content-gallery" style="--gallery-height: 300px; max-width: 100%; margin-bottom: 2px;">
+                <img src="../contentfiles/23optim/crosssectionFBD.png" alt="Twist angle optimization results" style="--column-span: 4;">
+                <img src="../contentfiles/23optim/twistOptim.png" alt="Optimization framework and methodology" style="--column-span: 8;">
+            </div>
+            <div class="content-gallery" style="--gallery-height: 340px; margin: 0 auto; max-width: 50%;">
+                <img src="../contentfiles/23optim/twistDist.png" alt="Pressure mapping transparency" style="--column-span: 12;">
+            </div>
+
+
+
+            <hr class="section-divider">
+            
+            <h3>AEROFOIL SELECTION</h3>
+            
+            <p>As with twist, incoming air flow angle of attack and velocity require careful selection of aerofoils in the blade. Slower air-speed at the root
+                suits a thicker, higher lift-to-drag ratio aerofoil, while the tip requires a thinner, lower drag aerofoil to reduce losses at high speeds.
+                For this study I used the SG60 family of airfoils, Giguere & Selig (1998), which are designed for small wind turbines.<br>
+                A 2D optimisation on the airfoil transition points indicated the best performance was a blade that started with tiny bit of SG6043,
+                and SG6042 for the rest. This increased C<sub>p</sub> to <strong>44.8%</strong>.
+            </p>
+            
+            <div class="content-gallery" style="--gallery-height: 300px; margin-bottom: 2px;">
+                <img src="../contentfiles/23optim/airfoils.png" alt="Power coefficient vs tip-speed ratio analysis" style="--column-span: 8;">
+                <img src="../contentfiles/23optim/OptimCharacteristics.png" alt="Twist angle optimization results" style="--column-span: 4;">
+            </div>
+        </div>
+    </main>
     </main>
 
     <script src="../js/main.js"></script>

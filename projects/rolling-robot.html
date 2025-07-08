@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rolling Robot - Harry Mills</title>
+    <link rel="icon" type="image/x-icon" href="../contentfiles/carfavicon.ico">
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
@@ -11,50 +12,88 @@
         <nav>
             <ul>
                 <li><a href="../index.html">Home</a></li>
-                <li><a href="../contact.html">Contact</a></li>
-                <li><a href="../cv.html">CV</a></li>
             </ul>
         </nav>
     </header>
 
     <div class="hero-banner" id="hero-banner">
-        <img src="../gallerypics/mech2.jpg" alt="Rolling Robot" class="hero-image">
-        <div class="hero-overlay"></div>
+        <img src="../contentfiles/23mech2/hero4.png" alt="Rolling Robot" class="hero-image">
+        <div class="hero-overlay" style="--base-opacity: 0.4; --scroll-opacity: 0.7;"></div>
         <div class="hero-content">
             <h1 class="hero-title">Rolling Robot</h1>
+            <p class="hero-subtitle">Hamster ball mechatronics project</p>
         </div>
     </div>
 
-    <main class="project-content">
-        <div class="project-info">
-            <span class="project-category">MECHATRONICS PROJECT | YEAR 4 IDE</span>
-            <span class="project-date">MARCH 2023 | 8 WEEKS</span>
-            
-            <div class="project-tags">
-                <span class="tag">Mechatronics</span>
-                <span class="tag">Control Systems</span>
-                <span class="tag">Arduino</span>
-                <span class="tag">Robotics</span>
+    <main class="project-content" style="padding-bottom: 1rem; padding-top: 1.25rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0;">
+            <div style="color: #999; font-size: 0.9em; text-transform: uppercase; letter-spacing: 1px;">
+                OCTOBER 2023
             </div>
+            <a href="../contentfiles/reportpdfs/Harry Mills integration & reflection report.pdf" target="_blank" style="display: inline-block; padding: 12px 24px; background-color: #3f5fc8; color: white; text-decoration: none; border-radius: 6px; font-weight: 500; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#0056b3'" onmouseout="this.style.backgroundColor='#3f5fc8'">
+                View Full Report (PDF) →
+            </a>
         </div>
-
         <div class="project-description">
-            <p>Design and construction of a hamster ball mechatronics robot capable of autonomous navigation and remote control. The project combined mechanical design, electronic control systems, and programming to create a unique rolling locomotion system.</p>
+            <p>Working in teams of 4, we designed and constructed an autonomous robot housed inside a plastic sphere, controlled over WiFi using a Raspberry Pi.
+                An ArUco barcode was used for tracking the robot from an overhead camera, which fed data to a 'mission control' PC running computer vision algorithms for
+                navigation and control. The robot included an ADC for monitoring battery voltage, oscialltion damping with IMU data, and a backlit barcode for better camera tracking. </p>
+            <p>My role in the team was the mechanical design and electronics integration of the rolling robot. The block diagram highlights my responsibilities
+                and dependencies with other team members' sub-systems.
+            </p>
             
-            <p>The robot features gyroscopic stabilization, wireless control capabilities, and sensor integration for obstacle avoidance. The spherical design presented unique challenges in power distribution, sensor mounting, and motion control algorithms.</p>
-        </div>
-
-        <section class="gallery-section">
-            <h2>Gallery</h2>
-            <div class="project-gallery">
-                <img src="../contentfiles/23mech2/placeholder1.jpg" alt="Rolling robot overview">
-                <img src="../contentfiles/23mech2/placeholder2.jpg" alt="Internal mechanism">
-                <img src="../contentfiles/23mech2/placeholder3.jpg" alt="Control electronics">
-                <img src="../contentfiles/23mech2/placeholder4.jpg" alt="Sensor array">
-                <img src="../contentfiles/23mech2/placeholder5.jpg" alt="Testing phase">
-                <img src="../contentfiles/23mech2/placeholder6.jpg" alt="Remote control interface">
+            <div class="content-gallery" style="--gallery-height: 500px; max-width: 75%; margin: 0 auto;">
+                <img src="../contentfiles/23mech2/blockdiagram.png" alt="System block diagram and control architecture" style="--column-span: 12;">
             </div>
-        </section>
+            
+            <hr class="section-divider">
+            <h3>DESIGN AND ITERATION</h3>
+
+            <p>This project was structured with weekly deadlines for planning, requirements, building, and testing. This meant the design, build and integrate process
+                was condensed into 2 weeks. This in turn meant that the <em>design, test, fail, iterate</em> loop had to be rapid to allow the maximum amount
+                of time for integrating my system with the other team members' work.
+            </p>
+            <p>After starting with rough mechanical diagrams and electrical layouts, I quickly moved to a first iteration of the assembly in CAD with detailed electrical
+                layouts. I iterated on the first design to quickly produce an improve robot design that was more stable, compact, and easier to assemble.<br>
+                Key considerations were that the chassis was laser cut from MDF for speed of prototyping, and electronics were easy to access (for debugging, charging,
+                wiring)
+            </p>
+            
+            <div class="content-gallery" style="--gallery-height: 400px; max-width: 80%; margin: 0 auto;">
+                <img src="../contentfiles/23mech2/week1.png" alt="System block diagram and control architecture" style="--column-span: 12;">
+            </div>
+                        
+            <div class="content-gallery" style="--gallery-height: 300px; margin-bottom: 2px;">
+                <img src="../contentfiles/23mech2/sketch1.png" alt="build week" style="--column-span: 3;">
+                <img src="../contentfiles/23mech2/rev1bot.png" alt="int week" style="--column-span: 3;">
+                <img src="../contentfiles/23mech2/PCBcad.png" alt="int week" style="--column-span: 6;">
+            </div>
+            <div class="content-gallery" style="--gallery-height: 300px; margin-bottom: 2px;">
+                <img src="../contentfiles/23mech2/desmoscalcs.png" alt="build week" style="--column-span: 6;">
+                <img src="../contentfiles/23mech2/cad1.png" alt="int week" style="--column-span: 6;">
+            </div>
+            
+            <hr class="section-divider">
+            
+            <h3>FINAL DESIGN AND INTEGRATION</h3>
+            
+            <p>During the final integration phase, I worked on my dependencies to other team members' sub-systems (motor control, barcode placement).
+                Ultimately, full integration was not achieved for the final demonstration. The integration process proved more complex than initially anticipated, highlighting valuable lessons
+                about system-level planning and the importance of early integration testing in multi-disciplinary projects.
+            </p>
+            
+            <div class="content-gallery" style="--gallery-height: 500px; max-width: 75%; margin: 0 auto;">
+                <img src="../contentfiles/23mech2/week2.png" alt="System block diagram and control architecture" style="--column-span: 12;">
+            </div>
+            <div class="content-gallery" style="--gallery-height: 350px; margin: 0 auto; max-width: 85%;">
+                <img src="../contentfiles/23mech2/cadtoreal.png" alt="CAD to physical prototype comparison" style="--column-span: 5;">
+                <img src="../contentfiles/23mech2/robot.jpg" alt="int week" style="--column-span: 7;">
+            </div>
+            <div class="content-gallery" style="--gallery-height: 300px;">
+                <img src="../contentfiles/23mech2/loopspin.gif" alt="Rolling robot demonstration" style="grid-column: 5 / span 4;">
+            </div>
+
+        </div>
     </main>
 
     <script src="../js/main.js"></script>

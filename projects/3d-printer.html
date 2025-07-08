@@ -11,8 +11,6 @@
         <nav>
             <ul>
                 <li><a href="../index.html">Home</a></li>
-                <li><a href="../contact.html">Contact</a></li>
-                <li><a href="../cv.html">CV</a></li>
             </ul>
         </nav>
     </header>
@@ -26,37 +24,93 @@
         </div>
     </div>
 
-    <main class="project-content">
-        <div class="project-info">
-            <span class="project-category">MANUFACTURING | PERSONAL</span>
-            <span class="project-date">2025 | 3 MONTHS</span>
-            
-            <div class="project-tags">
-                <span class="tag">3D Printing</span>
-                <span class="tag">Mechanical Assembly</span>
-                <span class="tag">Electronics</span>
-                <span class="tag">Open Source</span>
-                <span class="tag">Precision Engineering</span>
-            </div>
+    <main class="project-content" style="padding-bottom: 0; padding-top: 2rem;">
+        <div style="color: #999; font-size: 0.9em; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem;">
+            APRIL 2025
         </div>
-
         <div class="project-description">
-            <p>explain what voron is. explain what the trident is. explain why i wanted to do this. explain what i learnt. explainComplete build of a Voron Trident open-source 3D printer, featuring a fully enclosed CoreXY design capable of printing high-performance materials including ABS, PETG, and engineering plastics. The project involved precision mechanical assembly, electronics integration, and firmware configuration.</p>
+            <p>Voron printers are fully open-source 3D printer designs. The printer requires a kit of standard hardware
+                (leadscrews, linear rails, aluminium extrusions, build plate), generic electronics (power supply, motors, motor drivers),
+                and a set of 3D printed parts supplied on a not-for-profit basis by volunteers in the community.<br>
+                The printer is a fully enclosed CoreXY design, with a 300 x 300 x 250mm build volume. The heated chamber allows printing
+                with a wide range of materials, including ABS, ASA, and even Nylon and PC blends.</p>
             
-            <p>The Voron Trident combines cutting-edge 3D printing technology with open-source accessibility, featuring automatic bed leveling, chamber heating for temperature-sensitive materials, and exceptional print quality through rigid frame construction and advanced motion control systems. The enclosed design enables consistent printing of warping-prone materials while maintaining dimensional accuracy.</p>
-        </div>
+            <p>The printer is very capable in default configuration, but the real benefit of these printers are the open-source modification projects.
+                Thousands of users have contributed modifications to improve speed, quality, and enhance functionality.
+                The printer can be modified no end, and I'm looking forward to contributing my own projects!
+            </p>
 
-        <section class="gallery-section">
-            <h2>Gallery</h2>
-            <div class="project-gallery">
-                <img src="../contentfiles/25Trident/frame.jpg" alt="3D printer frame assembly">
-                <img src="../contentfiles/25Trident/gantry.jpg" alt="Gantry system">
-                <img src="../contentfiles/25Trident/elec.jpg" alt="Electronics setup">
-                <img src="../contentfiles/25Trident/toolhead.jpg" alt="Toolhead assembly">
-                <img src="../contentfiles/25Trident/enclosed.jpg" alt="Enclosed printer">
-                <img src="../contentfiles/25Trident/print.jpg" alt="Printing in action">
+            <hr class="section-divider">
+            <h3>MECHANICAL ASSEMBLY</h3>
+            <div class="content-gallery" style="--gallery-height: 300px; margin-bottom: 2px;">
+                <img src="../contentfiles/25Trident/PIF.png" alt="Initial frame assembly" style="--column-span: 9;">
+                <img src="../contentfiles/25Trident/frame2.png" alt="Initial frame assembly" style="--column-span: 3;">
             </div>
-        </section>
+            <div class="content-gallery" style="--gallery-height: 300px; margin: 0;">
+                <img src="../contentfiles/25Trident/frame.jpg" alt="Initial frame assembly" style="--column-span: 4;">
+                <img src="../contentfiles/25Trident/frame.png" alt="Gantry system installation" style="--column-span: 4;">
+                <img src="../contentfiles/25Trident/gantry.jpg" alt="Gantry system installation" style="--column-span: 4;">
+            </div>
+
+            <hr class="section-divider">
+            <h3>ELECTRONICS</h3>
+            <p>The Raspberry Pi was flashed with Klipper firmware, power supply connected to the mains, 
+            stepper motors connected to the motherboard, bed heater connected to an SSR, and limit switches plugged in, and
+            inductive z-probe configured. Finally  the CAN bus was flashed to the toolhead, and the first print could be started!
+            (The wires were tidied after taking the photo)</p>
+
+            <div class="content-gallery" style="--gallery-height: 350px; margin-bottom: 2px;">
+                <img src="../contentfiles/25Trident/toolhead.jpg" alt="Initial frame assembly" style="--column-span: 4;">
+                <img src="../contentfiles/25Trident/elec1.png" alt="Gantry system installation" style="--column-span: 4;">
+                <img src="../contentfiles/25Trident/elec.jpg" alt="Gantry system installation" style="--column-span: 4;">
+            </div>
+            <div class="content-gallery" style="--gallery-height: 300px; margin: 0;">
+                <img src="../contentfiles/25Trident/plateon.png" alt="Initial frame assembly" style="--column-span: 4;">
+                <img src="../contentfiles/25Trident/programming.png" alt="Initial frame assembly" style="--column-span: 4;">
+                <video style="--column-span: 4;" muted  loop playsinline autoplay>
+                    <source src="../contentfiles/25Trident/printvid.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <hr class="section-divider">
+            <h3>FINAL TOUCHES</h3>
+            
+            <p>With the printer functional I could print clips to hold enclosure panels, a mount for a webcam (for remote monitoring), and
+                skirts to protect the electronics bay. </p>
+
+            <p>The printer has been working great since I built it and gets regular use producing functional parts for the garage, house, car,
+                and other projects. 
+            </p>
+            
+            <div class="content-gallery" style="--gallery-height: 350px; margin-bottom: 2px;">
+                <img src="../contentfiles/25Trident/enclosed.jpg" alt="Initial frame assembly" style="--column-span: 4;">
+                <img src="../contentfiles/25Trident/printfinal.gif" alt="Gantry system installation" style="--column-span: 4;">
+                <img src="../contentfiles/25Trident/fin2.png" alt="Gantry system installation" style="--column-span: 4;">
+
+            </div>
+                        
+            <hr class="section-divider">
+
+            <div class="project-questions" style="margin-bottom: 2px; padding-bottom: 0;">
+                <h4><strong>To Do:</strong></h4>
+                <ul style="margin: 1.5rem 0 0 0;">
+                    <li>Input shaping</li>
+                    <li>Nozzle brush</li>
+                    <li>Toolhead cooling fan</li>
+                    <li>Extractor fan</li>
+                    <li>Calibrate 0.6mm nozzle</li>
+                    <li>Adaptive bed mesh</li>
+                    <li>Chamber temperature sensor</li>
+                    <li style="opacity: 0.7;">Filament runout sensor</li>
+                    <li style="opacity: 0.5;">Internal filament spool holder</li>
+                    <li style="opacity: 0.3;">Tramming the gantry</li>
+                    <li style="opacity: 0.1;">Tachometer hotend fan</li>
+                    <li style="opacity: 0.03;">Better sealing doors</li>
+                </ul>
+   
+            </div>
+        </div>
     </main>
 
     <script src="../js/main.js"></script>

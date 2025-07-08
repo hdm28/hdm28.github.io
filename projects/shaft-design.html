@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shaft Design - Harry Mills</title>
+    <link rel="icon" type="image/x-icon" href="../contentfiles/carfavicon.ico">
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
@@ -11,55 +12,90 @@
         <nav>
             <ul>
                 <li><a href="../index.html">Home</a></li>
-                <li><a href="../contact.html">Contact</a></li>
-                <li><a href="../cv.html">CV</a></li>
             </ul>
         </nav>
     </header>
 
     <div class="hero-banner" id="hero-banner">
-        <img src="../contentfiles/21shaft/shafthero.png" alt="Shaft Design" class="hero-image">
-        <div class="hero-overlay"></div>
+        <img src="../contentfiles/21shaft/hero1.jpg" alt="Shaft Design" class="hero-image">
+        <div class="hero-overlay" style="--base-opacity: 0.2; --scroll-opacity: 0.8;"></div>
         <div class="hero-content">
             <h1 class="hero-title">Shaft Design</h1>
-            <p class="hero-subtitle">Electric cargo bike axle sub-system design</h1>
+            <p class="hero-subtitle">Electric cargo bike axle sub-system design</p>
         </div>
     </div>
 
-    <main class="project-content">
-        <div class="project-info">
-            <span class="project-category">MECHANICAL DESIGN | YEAR 3 IDE</span>
-            <span class="project-date">FEBRUARY 2021 | 3 WEEKS</span>
-            
-            <div class="project-tags">
-                <span class="tag">Mechanical Design</span>
-                <span class="tag">Stress Analysis</span>
-                <span class="tag">CAD</span>
-                <span class="tag">Engineering Drawing</span>
+    <main class="project-content" style="padding-bottom: 1rem; padding-top: 1.25rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0;">
+            <div style="color: #999; font-size: 0.9em; text-transform: uppercase; letter-spacing: 1px;">
+                NOVEMBER 2021
             </div>
+            <a href="../contentfiles/reportpdfs/Shaft-design-SD167.pdf" target="_blank" style="display: inline-block; padding: 12px 24px; background-color: #3f5fc8; color: white; text-decoration: none; border-radius: 6px; font-weight: 500; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#0056b3'" onmouseout="this.style.backgroundColor='#3f5fc8'">
+                View Full Report (PDF) →
+            </a>
         </div>
-
         <div class="project-description">
-            <p>Comprehensive mechanical design project involving shaft assembly design, stress analysis, and detailed engineering documentation. The project required calculation of loads, selection of appropriate materials, and design of supporting structures and bearing assemblies.</p>
-            
-            <p>The design process included fatigue analysis, safety factor calculations, and optimization for manufacturing cost and performance. Detailed technical drawings and specifications were produced following industry standards.</p>
-        </div>
+            <p>Working in pairs, the task was to design the axle sub-assembly for an electric cargo bike that could withstand operational
+                forces while meeting dimensional and material constraints.<br> Our final design used low alloy Manganese-Molybdenum Steel for
+                a balance of strength-to-weight ratio and cost. We also implemented a chain drive system with pilot-bored sprockets and pillow-block
+                roller bearings for robust load support and ease of maintenance and assembly. We received the highest grade in the cohort for this project.</p>
 
-        <section class="gallery-section">
-            <h2>Gallery</h2>
-            <div class="project-gallery">
-                <img src="../contentfiles/21shaft/shaft1.jpg" alt="early sketch">
-                <img src="../contentfiles/21shaft/bendingMo.png" alt="FBD with bending moment graph">
-                <img src="../contentfiles/21shaft/diaGraph.png" alt="3D assembly render 2">
-                <img src="../contentfiles/21shaft/shaftsheet.png" alt="3D assembly render 2">
-                <img src="../contentfiles/21shaft/shaftdraw.jpg" alt="shaft drawing">
-                <img src="../contentfiles/21shaft/assdraw.jpg" alt="assembly drawing">
-                <img src="../contentfiles/21shaft/assRender2.png" alt="3D assembly render 2">
-                <img src="../contentfiles/21shaft/assRender1.png" alt="3D assembly render 1">
+            <hr class="section-divider">
+            <h3>CONCEPT DESIGNS</h3>
 
+            <p>Starting with rough sketches we gradually incorporated elements from the design brief and research into shaft design to develop a concept we
+                could take into CAD for detailed analysis.
+            </p>
 
+            <div class="content-gallery" style="--gallery-height: 250px; margin-bottom: 2px;">
+                <img src="../contentfiles/21shaft/shaft1.jpg" alt="Initial concept sketches" style="--column-span: 6;">
+                <img src="../contentfiles/21shaft/concept1.png" alt="Free body diagram with bending moment analysis" style="--column-span: 6;">
             </div>
-        </section>
+
+            <div class="content-gallery" style="--gallery-height: 250px; margin: 0;">
+                <img src="../contentfiles/21shaft/concept3.png" alt="Initial concept sketches" style="--column-span: 6;">
+                <img src="../contentfiles/21shaft/conc6.png" alt="Free body diagram with bending moment analysis" style="--column-span: 6;">
+            </div>
+
+            <hr class="section-divider">
+            <h3>STRESS ANALYSIS AND CALCULATIONS</h3>
+
+            <p>For each design iteration we ran load analysis to determine the maximum torque and bending loads the shaft would experience during operation,
+                 accounting for stress concentrations at keyways, circlip grooves and shoulders. Safety factors were applied throughout to account for
+                 real-world variations and unexpected loads.</p>
+
+            <div class="content-gallery" style="--gallery-height: 300px; margin-bottom: 2px;">
+                <img src="../contentfiles/21shaft/FBDs.png" alt="Initial concept sketches" style="--column-span: 5;">
+                <img src="../contentfiles/21shaft/shaftsheet.png" alt="Free body diagram with bending moment analysis" style="--column-span: 7;">
+            </div>
+             <div class="content-gallery" style="--gallery-height: 340px; margin-bottom: 2px;">
+                <img src="../contentfiles/21shaft/bendingMo.png" alt="Initial concept sketches" style="--column-span: 8;">
+                <img src="../contentfiles/21shaft/FEAresults.jpg" alt="Free body diagram with bending moment analysis" style="--column-span: 4;">
+            </div>
+            
+            <hr class="section-divider">
+            
+            <h3>FINAL DESIGN</h3>
+            
+            <p>Once all of the design requirements were met detailed engineering drawings were produced following industry standards (BS 8888) for both the shaft, 
+            and the axle sub-assembly.</p>
+            
+            <div class="content-gallery" style="--gallery-height: 350px; margin: 0;">
+                <img src="../contentfiles/21shaft/shaftdraw.jpg" alt="Detailed shaft engineering drawing" style="--column-span: 6;">
+                <img src="../contentfiles/21shaft/assdraw.jpg" alt="Complete assembly drawing" style="--column-span: 6;">
+            </div>
+
+            <p>The final design used a tapered mid-section guided by load analysis to limit the shear stress to 50MPa. This reduced the weight by 33%
+                while maintaining safety factors.</p> 
+
+            <div class="content-gallery" style="--gallery-height: 250px; margin: 0;">
+                <img src="../contentfiles/21shaft/weightredux.png" alt="Detailed shaft engineering drawing" style="--column-span: 5;">
+                <img src="../contentfiles/21shaft/diaGraph.png" alt="Complete assembly drawing" style="--column-span: 7;">
+            </div>
+            <div class="content-gallery" style="--gallery-height: 500px; margin: 0;">
+                <img src="../contentfiles/21shaft/isoAss.png" alt="Detailed shaft engineering drawing" style="--column-span: 12;">
+            </div>
+        </div>
     </main>
 
     <script src="../js/main.js"></script>

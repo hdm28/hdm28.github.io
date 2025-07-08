@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pick-and-Place Balloon Gripper - Harry Mills</title>
+    <link rel="icon" type="image/x-icon" href="../contentfiles/carfavicon.ico">
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
@@ -11,54 +12,89 @@
         <nav>
             <ul>
                 <li><a href="../index.html">Home</a></li>
-                <li><a href="../contact.html">Contact</a></li>
-                <li><a href="../cv.html">CV</a></li>
             </ul>
         </nav>
     </header>
 
     <div class="hero-banner" id="hero-banner">
-        <img src="../contentfiles/22Mech1/gantry1.JPG" alt="Balloon Gripper Gantry" class="hero-image">
+        <img src="../contentfiles/22Mech1/hero3.png" alt="Balloon Gripper Gantry" class="hero-image">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1 class="hero-title">Pick-and-Place Balloon Gripper</h1>
+            <h1 class="hero-title">Pick-and-Place Balloon</h1>
         </div>
     </div>
 
-    <main class="project-content">
-        <div class="project-info">
-            <span class="project-category">MECHANICAL ENGINEERING | YEAR 4 IDE</span>
-            <span class="project-date">JANUARY 2023 | 3 WEEKS</span>
-            
-            <div class="project-tags">
-                <span class="tag">Soft Robotics</span>
-                <span class="tag">Pneumatics</span>
-                <span class="tag">CNC</span>
-                <span class="tag">Design</span>
+    <main class="project-content" style="padding-bottom: 1rem; padding-top: 1.25rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0;">
+            <div style="color: #999; font-size: 0.9em; text-transform: uppercase; letter-spacing: 1px;">
+                DECEMBER 2022
             </div>
+            <a href="../contentfiles/reportpdfs/Harry Mills - gripper report.pdf" target="_blank" style="display: inline-block; padding: 12px 24px; background-color: #3f5fc8; color: white; text-decoration: none; border-radius: 6px; font-weight: 500; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#0056b3'" onmouseout="this.style.backgroundColor='#3f5fc8'">
+                View Full Report (PDF) →
+            </a>
         </div>
-
         <div class="project-description">
-            <p>Design and build a soft robotic gripper system for a CNC pick-and-place application. The project involved developing an inflatable balloon gripper that could safely handle delicate objects while being precise enough for automated manufacturing tasks.</p>
-            
-            <p>The system uses pneumatic control to inflate and deflate soft balloon grippers, allowing them to conform to objects of various shapes and sizes. The gripper was integrated with a custom gantry system for precise positioning and movement control.</p>
-        </div>
+            <p>Working in teams of 3, we had to design a system which could scan for magnets and pick-and-place cups using a CNC gantry.
+                My role was to design the pick-and-place mechanism. After some initial ideation and research, I decided to explore
+                soft robotics and build a jamming gripper with coffee grounds inside a balloon (this is more convoluted than other 
+                options, but the marking criteria included novelty and innovation, so I wanted to try something interesting).</p>
 
-        <section class="gallery-section">
-            <h2>Gallery</h2>
-            <div class="project-gallery">
-                <img src="../contentfiles/22Mech1/gantry1.JPG" alt="Gantry system overview">
-                <img src="../contentfiles/22Mech1/gantry2.jpg" alt="Gantry mechanism detail">
-                <img src="../contentfiles/22Mech1/gantry3.jpg" alt="Gantry assembly">
-                <img src="../contentfiles/22Mech1/balloonholder.jpg" alt="Balloon holding mechanism">
-                <img src="../contentfiles/22Mech1/inflatinggripper.jpg" alt="Inflating gripper system">
-                <img src="../contentfiles/22Mech1/softgrippers.jpg" alt="Soft gripper components">
-                <img src="../contentfiles/22Mech1/pneuma.PNG" alt="Pneumatic system">
-                <img src="../contentfiles/22Mech1/mechdiag.jpg" alt="Mechanical diagram">
-                <img src="../contentfiles/22Mech1/systemdiag.jpg" alt="System diagram">
-                <img src="../contentfiles/22Mech1/suckshema.jpg" alt="Suction schematic">
+            <p>The 'jamming' effect is achieved by filling an elastic membrane with small granules (a balloon and coffee grounds works well!).
+                The gripper is pressed on to the target object in a soft state to conform to its shape, before applying a vacuum to lock the granules solid
+                around the shape of the object. The benefit of soft robotics is that it can adapt to any shape (universal gripper) and pick up almost any object.
+            </p>
+
+            <div class="content-gallery" style="--gallery-height: 300px;">
+                <img src="../contentfiles/22Mech1/sketch.png" alt="Complete gantry system overview" style="--column-span: 4;">
+                <img src="../contentfiles/22Mech1/inflatinggripper.jpg" alt="Gantry mechanism detail" style="--column-span: 8;">
             </div>
-        </section>
+            
+            <hr class="section-divider">
+            <h3>PNEUMATIC DESIGN</h3>
+
+            <p>A mount to hold the balloon neck was 3D printed, and a pneumatic circuit which could apply pressure or a vacuum was implemented.</p>
+            
+            <div class="content-gallery" style="--gallery-height: 450px; margin-bottom: 2px;">
+                <img src="../contentfiles/22Mech1/suckschema.png" alt="Gripper inflation process" style="--column-span: 8;">                
+                <img src="../contentfiles/22Mech1/pneuma.PNG" alt="Balloon holding mechanism" style="--column-span: 4;">
+            </div>
+            
+            <div class="content-gallery" style="--gallery-height: 280px; margin: 0;">
+                <img src="../contentfiles/22Mech1/balloonholder.jpg" alt="Various soft gripper components" style="--column-span: 8;">
+                <img src="../contentfiles/22Mech1/gantry5.png" alt="Various soft gripper components" style="--column-span: 4;">
+            </div>
+            
+            <hr class="section-divider">
+            
+            <h3>MECHANICAL DESIGN</h3>
+            
+            <p>Mechanically this was quite simple. I attached the balloon assembly to a lead screw which was integrated into the frame which held the
+                electronics and hall-effect sensors. The marker cups were modified with a bolt to make them easier to pick up.
+            </p>
+            
+            <div class="content-gallery" style="--gallery-height: 450px; margin-bottom: 2px;">
+                <img src="../contentfiles/22Mech1/gantry1.JPG" alt="Gripper inflation process" style="--column-span: 3;">                
+                <img src="../contentfiles/22Mech1/mechdiag.jpg" alt="Balloon holding mechanism" style="--column-span: 5;">
+                <img src="../contentfiles/22Mech1/stepper.png" alt="Stepper motor mechanism" style="--column-span: 4;">
+            </div>
+            
+            <hr class="section-divider">
+            
+            <h3>SYSTEM INTEGRATION</h3>
+            
+            <p>The complete system integrates three key subsystems to achieve reliable pick-and-place functionality. The software layer includes 
+                scripts for gripper pickup and drop operations. The electronics layer handles stepper motor control, and pneumatic control via
+                a pressure sensor and solenoid valve control. The mechanical layer combines the gantry frame, lead screw positioning and
+                balloon gripper assembly into a cohesive system.</p>
+            
+            <div class="content-gallery" style="--gallery-height: 420px; margin: 0 auto;">
+                <img src="../contentfiles/22Mech1/systemdiag.jpg" alt="Complete system diagram" style="--column-span: 6;">
+                <video style="--column-span: 6;" muted loop playsinline autoplay onloadeddata="this.playbackRate = 1.3;">
+                    <source src="../contentfiles/22Mech1/balloongripper.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
     </main>
 
     <script src="../js/main.js"></script>
