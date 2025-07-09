@@ -526,8 +526,8 @@ h1 {
 .lightbox-video {
     width: auto;
     max-width: 90%;
-    height: 75vh;
-    max-height: 75vh;
+    height: 55vh;
+    max-height: 55vh;
     border-radius: 8px;
 }
 
@@ -628,7 +628,7 @@ h1 {
     
     .lightbox-video {
         width: 90%;
-        max-height: 50vh;
+        max-height: 40vh;
     }
     
     .lightbox-nav {
