@@ -356,7 +356,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function prefetchPage(url) {
-        // Create a link element for prefetching
+        // Create a link element for prefetching the HTML
         const prefetchLink = document.createElement('link');
         prefetchLink.rel = 'prefetch';
         prefetchLink.href = url;
@@ -365,7 +365,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Add to head to start prefetching
         document.head.appendChild(prefetchLink);
         
-        // Optional: Also fetch and cache the page content for even faster loading
+        // Fetch and parse the page to preload critical images
         fetch(url)
             .then(response => {
                 if (response.ok) {
@@ -373,8 +373,46 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             })
             .then(html => {
-                // Page is now cached by the browser
-                console.log(`Prefetched: ${url}`);
+                // Parse the HTML to find images to preload
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                
+                // Get hero image and first few gallery images
+                const heroImg = doc.querySelector('.hero-image img, .hero img');
+                const galleryImages = doc.querySelectorAll('.project-gallery img, .content-gallery img');
+                
+                const imagesToPreload = [];
+                
+                // Add hero image if it exists
+                if (heroImg && heroImg.src) {
+                    imagesToPreload.push(heroImg.src);
+                }
+                
+                // Add first 3-4 gallery images (visible above the fold)
+                for (let i = 0; i < Math.min(4, galleryImages.length); i++) {
+                    if (galleryImages[i].src) {
+                        imagesToPreload.push(galleryImages[i].src);
+                    }
+                }
+                
+                // Preload the images
+                imagesToPreload.forEach(imgSrc => {
+                    // Convert relative URLs to absolute
+                    const absoluteUrl = new URL(imgSrc, url).href;
+                    
+                    // Create prefetch link for image
+                    const imgPrefetchLink = document.createElement('link');
+                    imgPrefetchLink.rel = 'prefetch';
+                    imgPrefetchLink.href = absoluteUrl;
+                    imgPrefetchLink.as = 'image';
+                    document.head.appendChild(imgPrefetchLink);
+                    
+                    // Also create an Image object to force browser caching
+                    const img = new Image();
+                    img.src = absoluteUrl;
+                });
+                
+                console.log(`Prefetched: ${url} with ${imagesToPreload.length} images`);
             })
             .catch(error => {
                 // Silent fail - prefetching is an enhancement, not critical
