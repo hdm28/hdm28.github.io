@@ -334,3 +334,51 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// Page preloading on hover for gallery items
+document.addEventListener('DOMContentLoaded', function() {
+    const galleryLinks = document.querySelectorAll('.gallery .grid-item');
+    const prefetchedPages = new Set(); // Track already prefetched pages
+    
+    if (galleryLinks.length > 0) {
+        galleryLinks.forEach(link => {
+            // Add hover event to preload the page
+            link.addEventListener('mouseenter', function() {
+                const href = this.getAttribute('href');
+                
+                // Only prefetch if we haven't already and it's a relative link
+                if (href && !prefetchedPages.has(href) && !href.startsWith('http')) {
+                    prefetchPage(href);
+                    prefetchedPages.add(href);
+                }
+            });
+        });
+    }
+    
+    function prefetchPage(url) {
+        // Create a link element for prefetching
+        const prefetchLink = document.createElement('link');
+        prefetchLink.rel = 'prefetch';
+        prefetchLink.href = url;
+        prefetchLink.as = 'document';
+        
+        // Add to head to start prefetching
+        document.head.appendChild(prefetchLink);
+        
+        // Optional: Also fetch and cache the page content for even faster loading
+        fetch(url)
+            .then(response => {
+                if (response.ok) {
+                    return response.text();
+                }
+            })
+            .then(html => {
+                // Page is now cached by the browser
+                console.log(`Prefetched: ${url}`);
+            })
+            .catch(error => {
+                // Silent fail - prefetching is an enhancement, not critical
+                console.log(`Prefetch failed for ${url}:`, error);
+            });
+    }
+});
