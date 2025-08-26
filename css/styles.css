@@ -175,7 +175,7 @@ h1 {
 }
 
 /* Enhanced responsive design */
-@media (max-width: 768px) {
+@media (max-width: 800px) {
     .gallery {
         grid-template-columns: repeat(2, 1fr);
         gap: 2px;
@@ -198,6 +198,12 @@ h1 {
     
     .grid-item .overlay {
         padding: 12px;
+        opacity: 1; /* Always show overlay on mobile */
+        background-color: rgba(0, 0, 0, 0.4); /* Lighter overlay for mobile */
+    }
+    
+    .grid-item:hover .overlay {
+        opacity: 1; /* Keep the same opacity on hover for mobile */
     }
     
     .overlay-title {
@@ -220,6 +226,11 @@ h1 {
     .item-large {
         grid-column: span 1;
         grid-row: span 1;
+    }
+    
+    .grid-item .overlay {
+        opacity: 1; /* Always show overlay on mobile */
+        background-color: rgba(0, 0, 0, 0.4); /* Lighter overlay for mobile */
     }
     
     .overlay-title {
@@ -450,7 +461,7 @@ h1 {
 }
 
 /* Responsive design for project pages */
-@media (max-width: 768px) {
+@media (max-width: 800px) {
     .hero-banner {
         height: 25vh; /* Smaller height on mobile but maintain proportions */
         min-height: 200px;
@@ -475,6 +486,40 @@ h1 {
     .project-gallery {
         grid-template-columns: 1fr;
         gap: 0.3rem; /* Even smaller gap on mobile */
+    }
+    
+    /* Content gallery mobile fixes */
+    .content-gallery {
+        grid-template-columns: 1fr; /* Single column on mobile */
+    }
+    
+    .content-gallery img,
+    .content-gallery video {
+        grid-column: span 1; /* Force all items to full width */
+        height: auto; /* Let height be natural */
+        min-height: 200px; /* Minimum height for very wide images */
+        max-height: 400px; /* Maximum height to prevent very tall images */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .project-content {
+        padding: 1.5rem 4%;
+    }
+    
+    /* Further optimize content gallery for small screens */
+    .content-gallery img,
+    .content-gallery video {
+        min-height: 150px; /* Smaller minimum height on very small screens */
+        max-height: 300px; /* Smaller maximum height on very small screens */
     }
 }
 
