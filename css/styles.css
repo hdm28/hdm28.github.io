@@ -199,7 +199,7 @@ h1 {
     .grid-item .overlay {
         padding: 12px;
         opacity: 1; /* Always show overlay on mobile */
-        background-color: rgba(0, 0, 0, 0.4); /* Lighter overlay for mobile */
+        background-color: rgba(0, 0, 0, 0.3); /* Even lighter overlay for mobile */
     }
     
     .grid-item:hover .overlay {
@@ -207,11 +207,11 @@ h1 {
     }
     
     .overlay-title {
-        font-size: clamp(1em, 3vw, 1.4em);
+        font-size: clamp(1.3em, 5vw, 1.8em); /* Larger minimum and viewport scaling */
     }
     
     .overlay-subtitle {
-        font-size: clamp(0.5em, 1.5vw, 0.65em);
+        font-size: clamp(0.8em, 3vw, 1em); /* Larger subtitle text */
     }
 }
 
@@ -230,15 +230,15 @@ h1 {
     
     .grid-item .overlay {
         opacity: 1; /* Always show overlay on mobile */
-        background-color: rgba(0, 0, 0, 0.4); /* Lighter overlay for mobile */
+        background-color: rgba(0, 0, 0, 0.3); /* Even lighter overlay for mobile */
     }
     
     .overlay-title {
-        font-size: clamp(1.1em, 4vw, 1.5em);
+        font-size: clamp(1.4em, 6vw, 2em); /* Even larger for small screens */
     }
     
     .overlay-subtitle {
-        font-size: clamp(0.55em, 2vw, 0.7em);
+        font-size: clamp(0.9em, 4vw, 1.1em); /* Larger subtitle for small screens */
     }
 }
 
@@ -479,6 +479,23 @@ h1 {
         padding: 2rem 5%;
     }
     
+    .project-description {
+        font-size: 0.95rem; /* Smaller than 1.1rem desktop size */
+        line-height: 1.5; /* Slightly tighter line height */
+    }
+    
+    .project-description h3 {
+        font-size: 1.1rem; /* Smaller headings too */
+    }
+    
+    .project-questions h4 {
+        font-size: 1rem; /* Smaller question headings */
+    }
+    
+    .project-questions p {
+        font-size: 0.9rem; /* Smaller question text */
+    }
+    
     .project-tags {
         flex-wrap: wrap;
     }
@@ -513,6 +530,24 @@ h1 {
     
     .project-content {
         padding: 1.5rem 4%;
+    }
+    
+    /* Even smaller paragraph text on very small screens */
+    .project-description {
+        font-size: 0.75rem; /* Even smaller for tiny screens */
+        line-height: 1.4;
+    }
+    
+    .project-description h3 {
+        font-size: 1rem; /* Smaller headings */
+    }
+    
+    .project-questions h4 {
+        font-size: 0.95rem; /* Smaller question headings */
+    }
+    
+    .project-questions p {
+        font-size: 0.85rem; /* Smaller question text */
     }
     
     /* Further optimize content gallery for small screens */
