@@ -29,13 +29,13 @@
             APRIL 2025
         </div>
         <div class="project-description">
-            <p>Voron printers are fully open-source 3D printer designs. The printer requires a kit of standard hardware
-                (leadscrews, linear rails, aluminium extrusions, build plate), generic electronics (power supply, motors, motor drivers),
-                and a set of 3D printed parts supplied on a not-for-profit basis by volunteers in the community.<br>
-                The printer is a fully enclosed CoreXY design, with a 300 x 300 x 250mm build volume. The heated chamber allows printing
-                with a wide range of materials, including ABS, ASA, and even Nylon and PC blends.</p>
-            
-            <p>The printer is very capable in default configuration, but the real benefit of these printers are the open-source modification projects.
+            <p>Voron printers are fully open-source 3D printer designs. A kit of standard hardware
+                (leadscrews, linear rails, aluminium extrusions, etc), generic electronics (power supply, motors, motor drivers),
+                and some 3D printed parts.<br>
+                The printer is an enclosed CoreXY design (300 x 300 x 250mm build volume). The heated chamber allows printing
+                with a wide range of materials, from PLA and PETG to ABS, ASA, Nylon and more.</p>
+
+            <p>The real benefit of these printers are the open-source community modification projects.
                 Thousands of users have contributed modifications to improve speed, quality, and enhance functionality.
                 The printer can be modified no end, and I'm looking forward to contributing my own projects!
             </p>
@@ -54,10 +54,11 @@
 
             <hr class="section-divider">
             <h3>ELECTRONICS</h3>
-            <p>The Raspberry Pi was flashed with Klipper firmware, power supply connected to the mains, 
-            stepper motors connected to the motherboard, bed heater connected to an SSR, and limit switches plugged in, and
-            inductive z-probe configured. Finally  the CAN bus was flashed to the toolhead, and the first print could be started!
-            (The wires were tidied after taking the photo)</p>
+            <p>The printer is controlled by a Raspberry Pi CM4 running Klipper firmware. 3 Stepper motors drive vertical leadscrews to control bed height and 2 steppers control the
+                XY position of a fixed height gantry. The mainboard runs a CAN bus to the gantry to control nozzle temperature, extrusion rate, fan speed, and an inductive probe
+                provides Z-axis position feedback. Mains power is connected to a 5V power supply and the bed heater.
+                Once the wiring and firmware flashing was complete the first print could be started (The wires were tidied after taking the photo!).
+            </p>
 
             <div class="content-gallery" style="--gallery-height: 350px; margin-bottom: 2px;">
                 <img src="../contentfiles/25Trident/toolhead.jpg" alt="Initial frame assembly" style="--column-span: 4;">
@@ -76,11 +77,11 @@
             <hr class="section-divider">
             <h3>FINAL TOUCHES</h3>
             
-            <p>With the printer functional I could print clips to hold enclosure panels, a mount for a webcam (for remote monitoring), and
-                skirts to protect the electronics bay. </p>
+            <p>I printed clips to hold the acrylic enclosure panels, 
+                mounted a webcam for remote monitoring, and added chamber lighting for better visibility during prints.</p>
 
-            <p>The printer has been working great since I built it and gets regular use producing functional parts for the garage, house, car,
-                and other projects. 
+            <p>The printer has been working reliably since completion and gets regular use producing functional parts for the garage, 
+                house, car, and other projects. This was a really fun project - I learnt a lot about 3D printers and there's load of scope for improvements in the future!
             </p>
             
             <div class="content-gallery" style="--gallery-height: 350px; margin-bottom: 2px;">
