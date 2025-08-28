@@ -202,6 +202,11 @@ h1 {
         background-color: rgba(0, 0, 0, 0.3); /* Even lighter overlay for mobile */
     }
     
+    /* Darker overlay for light images on mobile */
+    .grid-item.light-image .overlay {
+        background-color: rgba(0, 0, 0, 0.6); /* Darker overlay for white/light images */
+    }
+    
     .grid-item:hover .overlay {
         opacity: 1; /* Keep the same opacity on hover for mobile */
     }
@@ -231,6 +236,11 @@ h1 {
     .grid-item .overlay {
         opacity: 1; /* Always show overlay on mobile */
         background-color: rgba(0, 0, 0, 0.3); /* Even lighter overlay for mobile */
+    }
+    
+    /* Darker overlay for light images on mobile */
+    .grid-item.light-image .overlay {
+        background-color: rgba(0, 0, 0, 0.6); /* Darker overlay for white/light images */
     }
     
     .overlay-title {
